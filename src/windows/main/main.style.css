@@ -1,3 +1,38 @@
+.bap-layout__content {
+    position: relative;
+}
+
+#link-webview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 .bap-drawer {
-    border: none;
+    border:none;
+    width: 80px;
+}
+
+.bap-navigation-footer {
+    position: absolute;
+    bottom: 0px;    
+    width: 100%;
+}
+
+
+.bap-navigation-footer button {
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    height: 64px;
+}
+
+.bap-navigation-footer button i {
+    color: #cdc;
+}
+
+.bap-layout__content {
+    margin-left: 80px;
 }
