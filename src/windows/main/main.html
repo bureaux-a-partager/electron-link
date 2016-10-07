@@ -13,9 +13,7 @@
     <script src="../../bower_components/angular/angular.min.js"></script>
 </head>
 <body>
-    <webview src="https://acces.espace.link" id="script" nodeintegration plugins
-     style="display:inline-flex; width:640px; height:480px"></webview>
-<!--
+
     <div class="mdl-layout__container">
         <div ng-controller="MainCtrl as vm" class="bap-layout mdl-layout mdl-layout--fixed-drawer">
             <div class="bap-drawer mdl-layout__drawer mdl-color--blue-grey-700">
@@ -23,13 +21,21 @@
                 <nav class="bap-navigation mdl-navigation mdl-color--blue-grey-900">
                     <a class="bap-navigation mdl-navigation__link">Espace Drouot</a>
                 </nav>
+                <footer class="bap-navigation-footer">
+                    <button class="mdl-button">
+                        <i class="material-icons">add</i>
+                    </button>
+                     <button class="mdl-button">
+                        <i class="material-icons">settings</i>
+                    </button>
+                </footer>
             </div>
 
             <div class="bap-layout__content mdl-layout__content">
-                <webview src="https://acces.espace.link" nodeintegration plugins></webview>
+                <webview src="https://acces.espace.link" id="link-webview"></webview>
             </div>
         </div>
-    </div>-->
+    </div>
 
     <script src="../menu/menu.view.js"></script>
     <script>require('./main.controller.js')</script>
