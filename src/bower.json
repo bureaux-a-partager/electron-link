@@ -1,0 +1,24 @@
+{
+  "name": "electron-link",
+  "version": "1.0.0",
+  "authors": [
+    "Jules Truong <jules.truong.pro@gmail.com>"
+  ],
+  "keywords": [
+    "electron",
+    "link",
+    "bureauxapartager"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "material-design-lite": "^1.2.1"
+  }
+}
