@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ELL Keychain</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="../../bower_components/material-design-lite/material.min.css" rel="stylesheet" />
+
+    <link href="./main.style.css" rel="stylesheet" />
+
+    <script src="../../bower_components/material-design-lite/material.min.js"></script>
+    <script src="../../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+    <webview src="https://acces.espace.link" id="script" nodeintegration plugins
+     style="display:inline-flex; width:640px; height:480px"></webview>
+<!--
+    <div class="mdl-layout__container">
+        <div ng-controller="MainCtrl as vm" class="bap-layout mdl-layout mdl-layout--fixed-drawer">
+            <div class="bap-drawer mdl-layout__drawer mdl-color--blue-grey-700">
+                <header class=dl-layout-header"></header>
+                <nav class="bap-navigation mdl-navigation mdl-color--blue-grey-900">
+                    <a class="bap-navigation mdl-navigation__link">Espace Drouot</a>
+                </nav>
+            </div>
+
+            <div class="bap-layout__content mdl-layout__content">
+                <webview src="https://acces.espace.link" nodeintegration plugins></webview>
+            </div>
+        </div>
+    </div>-->
+
+    <script src="../menu/menu.view.js"></script>
+    <script>require('./main.controller.js')</script>
+    <script src="./main.view.js"></script>
+
+    <script>
+    onload = () => {
+        const webview = document.getElementById('script');
+
+        webview.addEventListener('did-start-loading', function() {
+            console.log(webview);
+            console.log("start");
+        });
+        webview.addEventListener('did-stop-loading', function() {
+            console.log("stop");
+        })
+    } 
+    </script>
+
+    <script>
+        angular
+            .element(document)
+            .ready(function() {
+                console.log("angular started");
+                angular.bootstrap(document.body, ['MainView']);
+            });
+    </script>
+</body>
+</html>
