@@ -1,0 +1,23 @@
+<div class="insert" ng-controller="InsertCtrl as vm">
+    <form name="insertForm" no-validate>
+        <fieldset ng-disabled="!vm.loaded">
+            <div class="mdl-textfield">
+                <input class="mdl-textfield__input" type="text" id="description" ng-model="vm.formData.description" required />
+                <label class="mdl-textfield__label" for="description">Description...</label>
+            </div>
+            <div class="mdl-textfield">
+                <input class="mdl-textfield__input" type="text" id="username" ng-model="vm.formData.username" />
+                <label class="mdl-textfield__label" for="username">Username...</label>
+            </div>
+            <div class="mdl-textfield">
+                <input class="mdl-textfield__input" type="password" id="password" ng-model="vm.formData.password" required />
+                <label class="mdl-textfield__label" for="password">Password...</label>
+            </div>
+            <div class="">
+                <button generate-password class="mdl-button">generate</button>
+                <button toggle-insert-view class="mdl-button">cancel</button>
+                <button save-password class="mdl-button" ng-disabled="insertForm.$invalid">save</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

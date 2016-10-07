@@ -36,9 +36,7 @@ app.on('ready', function() {
     mainWindow.openDevTools();
 })
 
-console.log("IPCMAIN ON");
 ipcMain.on('toggle-insert-view', function() {
-    console.log("IPC TOGGLE");
     if (!insertWindow) {
         createInsertWindow()
     }

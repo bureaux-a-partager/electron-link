@@ -1,25 +1,23 @@
 {
-  "name": "electron-link",
-  "version": "1.0.0",
-  "description": "A wrapper for https://acces.espace.link",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron main.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/bureaux-a-partager/electron-link.git"
-  },
-  "keywords": [
-    "link",
-    "bureaux-a-partager"
-  ],
-  "author": "Jules Truong",
-  "bugs": {
-    "url": "https://github.com/bureaux-a-partager/electron-link/issues"
-  },
-  "homepage": "https://github.com/bureaux-a-partager/electron-link#readme",
-  "devDependencies": {
-    "electron-prebuilt": "^0.36.0"
-  }
+    "name": "electron-link",
+    "version": "1.0.0",
+    "description": "",
+    "main": "gulpfile.js",
+    "author": "Jules Truong <jules.truong.pro@gmail.com>",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bureaux-a-partager/electron-link.git"
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/bureaux-a-partager/electron-link/issues"
+    },
+    "homepage": "https://github.com/bureaux-a-partager/electron-link#readme",
+    "devDependencies": {
+        "gulp": "^3.9.0",
+        "gulp-electron": "0.0.9"
+    }  
 }
