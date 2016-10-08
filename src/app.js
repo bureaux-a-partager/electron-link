@@ -10,6 +10,9 @@ function createInsertWindow() {
         height: 480,
         center: true,
         show: false,
+        autoHideMenuBar: true,
+        titleBarStyle: 'hidden',
+        frame: false,
     });
 
     insertWindow .loadURL('file://' + __dirname 
@@ -25,6 +28,9 @@ function createSettingWindow() {
         height: 480,
         center: true,
         show: false,
+        autoHideMenuBar: true,
+        titleBarStyle: 'hidden',
+        frame: false,
     });
 
     settingWindow .loadURL('file://' + __dirname 
