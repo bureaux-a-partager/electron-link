@@ -1,0 +1,17 @@
+@import '../common/variable';
+@import '../menu/menu.style';
+
+.bap-layout__content {
+  position: relative; 
+}
+
+#link-webview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.mdl-layout--fixed-drawer > .bap-layout__content {
+  margin-left: $width-menu; }
+

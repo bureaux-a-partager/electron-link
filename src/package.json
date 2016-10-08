@@ -1,23 +1,28 @@
 {
-    "name": "electron-link-src",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "author": "Jules Truong <jules.truong.pro@gmail.com>",
-    "scripts": {
-     "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/bureaux-a-partager/electron-link.git"
-    },
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/bureaux-a-partager/electron-link/issues"
-    },
-    "homepage": "https://github.com/bureaux-a-partager/electron-link#readme",
-    "dependencies": {
-        "lokijs": "^1.3.9",
-        "uuid": "^2.0.1"
-    }
+  "name": "electron-link-src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "Jules Truong <jules.truong.pro@gmail.com>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "find windows -name '*.scss' | sed  s/.scss$// | while read i; do sass $i.scss:$i.css --style compressed; done",
+    "sass-watch": "find windows -name '*.scss' | sed  s/.scss$// | while read i; do sass --watch $i.scss:$i.css --style compressed; done"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bureaux-a-partager/electron-link.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bureaux-a-partager/electron-link/issues"
+  },
+  "homepage": "https://github.com/bureaux-a-partager/electron-link#readme",
+  "dependencies": {
+    "lokijs": "^1.3.9",
+    "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "node-sass": "^3.10.1"
+  }
 }
