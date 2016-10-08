@@ -17,7 +17,5 @@
     },
     "homepage": "https://github.com/bureaux-a-partager/electron-link#readme",
     "devDependencies": {
-        "gulp": "^3.9.0",
-        "gulp-electron": "0.0.9"
     }  
 }
