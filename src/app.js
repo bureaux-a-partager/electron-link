@@ -2,7 +2,7 @@
 const electron = require('electron');
 const {app, BrowserWindow, ipcMain} = electron;
 
-var mainWindow, insertWindow;
+var mainWindow, insertWindow, settingWindow;
 
 function createInsertWindow() {
     insertWindow = new BrowserWindow({
@@ -12,9 +12,25 @@ function createInsertWindow() {
         show: false,
     });
 
-    insertWindow .loadURL('file://' + __dirname + '/windows/insert/insert.html');
+    insertWindow .loadURL('file://' + __dirname 
+    + '/windows/insert/insert.html');
     insertWindow.on('closed', function() {
         insertWindow = null;
+    })
+}
+
+function createSettingWindow() {
+    settingWindow = new BrowserWindow({
+        width: 640,
+        height: 480,
+        center: true,
+        show: false,
+    });
+
+    settingWindow .loadURL('file://' + __dirname 
+    + '/windows/settings/setting.html');
+    settingWindow.on('closed', function() {
+        settingWindow = null;
     })
 }
 
@@ -36,10 +52,19 @@ app.on('ready', function() {
     mainWindow.openDevTools();
 })
 
-ipcMain.on('toggle-insert-view', function() {
+ipcMain.on('toggle-add-url-view', function() {
     if (!insertWindow) {
         createInsertWindow()
     }
 
     return (insertWindow.isVisible()) ? insertWindow.hide() : insertWindow.show();
+});
+
+
+ipcMain.on('toggle-setting-view', function() {
+    if (!settingWindow) {
+        createSettingWindow()
+    }
+
+    return (settingWindow.isVisible()) ? settingWindow.hide() : settingWindow.show();
 });
