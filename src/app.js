@@ -17,6 +17,7 @@ function createInsertWindow() {
 
     insertWindow .loadURL('file://' + __dirname 
     + '/windows/insert/insert.html');
+    insertWindow.openDevTools();
     insertWindow.on('closed', function() {
         insertWindow = null;
     })
