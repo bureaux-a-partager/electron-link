@@ -2,7 +2,7 @@ const {ipcRenderer} = require('electron');
 
 angular
 .module('Menu', ['Utils'])
-.directive('bapElectronLinkLeftMenu', ['StorageService', function(StorageService) {
+.directive('bapElectronLinkLeftMenu', ['StorageService', '$q', function(StorageService, $q) {
     return {
         restrict: 'A',
         templateUrl: '../menu/menu.html', // because executed in main
@@ -10,6 +10,13 @@ angular
             
             var toggleAddUrlView = angular.element(document.querySelector("#toggle-add-url-view"));
             var toggleSettingView = angular.element(document.querySelector("#toggle-setting-view"));
+
+
+            var resetActive = function () {
+                scope.urls.forEach(function(url) {
+                    url.active = false;
+                });
+            }
 
             StorageService.init().then(function (db) {
                 scope.urls = db.getDocs();
@@ -41,7 +48,21 @@ angular
             };
 
             scope.changeUrl = function (url) {
-                ipcRenderer.send('change-subdomain', url);
+                resetActive();
+                url.active = true;
+
+                var promises = [];
+                scope.urls.forEach(function(url) { 
+                    promises.push(StorageService.updateDoc(url)); 
+                });
+
+                StorageService.reload().then(function() {
+                    $q.all(promises).then(function() {
+                        ipcRenderer.send('change-subdomain', url);
+                    }, function (err) {
+                        console.log(err);
+                    });
+                });
             };
         }
     };

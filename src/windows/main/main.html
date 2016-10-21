@@ -21,7 +21,7 @@
             </div>
 
             <div class="bap-layout__content mdl-layout__content">
-                <webview src="https://acces.espace.link" id="link-webview"></webview>
+                <webview src="https://acces.espace.link" partition="persist:github" id="link-webview"></webview>
             </div>
         </div>
     </div>
@@ -45,8 +45,7 @@
         
 
         ipcRenderer.on('reload-webview', function(event, url) {
-            console.log("URL", url);
-            webview.src = "https://" + url;
+            webview.loadURL("https://" + url.url);
         })
     } 
     </script>
