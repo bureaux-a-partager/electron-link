@@ -66,6 +66,20 @@ angular
         return deferred.promise;
     };
 
+    this.updateDoc = function(doc) {
+         var deferred = $q.defer();
+
+        if (this.isLoaded() && this.getCollection()) {
+            this.getCollection().update(doc);
+            this.db.saveDatabase();
+            deferred.resolve(this.getCollection());
+        } else {
+            deferred.reject(new Error('DB NOT READY'));
+        }
+
+        return deferred.promise;
+    };
+
     this.getDocs = function () {
         return (this.getCollection()) ? this.getCollection().data : null;
     };

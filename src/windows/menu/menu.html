@@ -1,8 +1,9 @@
 <header class="mdl-layout-header"></header>
 <nav class="bap-navigation mdl-navigation mdl-color--blue-grey-900">
-    <span ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link" ng-class="{'active': data.active}">
+    <span ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link" ng-class="{'active': data.active == true}">
         <i class="material-icons" ng-click="removeUrl(data)">delete_forever</i>
-        <a ng-click="changeUrl(data.url)">{{ data.url }}</a>
+        {{ data.active }}
+        <a ng-click="changeUrl(data)">{{ data.url }}</a>
     </span>
 </nav>
 <footer class="bap-navigation-footer">

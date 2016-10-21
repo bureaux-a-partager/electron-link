@@ -38,7 +38,10 @@
                     color:white;
                 }
             }
-
+            
+            &.active {
+                background: #7a3754;
+            }
             &:hover {
                  cursor: pointer;
                 .material-icons {
