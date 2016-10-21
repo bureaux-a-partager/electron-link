@@ -13,14 +13,17 @@ angular
    
     $scope.add = function add() {
         
-        var data = {url: vm.form.url + ".espace.link"};
-        StorageService.addDoc(data).then(function(collection) {
-            vm.form.url = "";
-            var result = ipcRenderer.sendSync("sync-urls", collection.data);
-            if (result) {
-                ipcRenderer.send("toggle-add-url-view");
-            }
-        }, function err(e) {
+        var data = {url: vm.form.url + ".espace.link", active: false};
+        StorageService.reload()
+            .then(function () {
+                return StorageService.addDoc(data);
+            })
+            .then(function(collection) {
+                vm.form.url = "";
+                var result = ipcRenderer.sendSync("sync-urls", collection.data);
+                if (result) {
+                    ipcRenderer.send("toggle-add-url-view");
+                }
         });
     }
 }]);

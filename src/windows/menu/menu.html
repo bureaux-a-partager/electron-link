@@ -2,7 +2,6 @@
 <nav class="bap-navigation mdl-navigation mdl-color--blue-grey-900">
     <span ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link" ng-class="{'active': data.active == true}">
         <i class="material-icons" ng-click="removeUrl(data)">delete_forever</i>
-        {{ data.active }}
         <a ng-click="changeUrl(data)">{{ data.url }}</a>
     </span>
 </nav>
@@ -14,3 +13,15 @@
         <i class="material-icons">settings</i>
     </button>
 </footer>
+
+<dialog class="mdl-dialog" id="dialog">
+    <h4 class="mdl-dialog__title">Supprimer cette URL?</h4>
+    <div class="mdl-dialog__content">
+        <p>
+            Vous être sur le point de supprimer une URL. En êtes vous sûr ?
+        </p>
+    </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">Ok</button>
+    </div>
+</dialog>
