@@ -26,6 +26,7 @@
         </div>
     </div>
 
+    <script src="../common/utils.js"></script>
     <script src="../menu/menu.view.js"></script>
     <script>require('./main.controller.js')</script>
     <script src="./main.view.js"></script>
@@ -35,11 +36,8 @@
         const webview = document.getElementById('link-webview');
 
         webview.addEventListener('did-start-loading', function() {
-            console.log(webview);
-            console.log("start");
         });
         webview.addEventListener('did-stop-loading', function() {
-            console.log("stop");
         })
     } 
     </script>
@@ -48,7 +46,6 @@
         angular
             .element(document)
             .ready(function() {
-                console.log("angular started");
                 angular.bootstrap(document.body, ['MainView']);
             });
     </script>

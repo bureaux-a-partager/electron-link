@@ -4,6 +4,10 @@
     border: none;
     width: $width-menu; 
 
+    .mdl-layout-header {
+        height: 50px;
+    }
+
     .bap-navigation-footer {
         position: absolute;
         bottom: 0px;
@@ -20,10 +24,30 @@
             }
         }
     }
-}
 
-.mdl-layout__drawer .bap-navigation .bap-navigation__link {
-    padding: 8px 16px; 
+    .bap-navigation {
+        padding-top: 0;
+        .bap-navigation__link {
+            padding: 8px 16px 8px 24px;
+            .material-icons {
+                position:absolute;
+                left:0;
+                display:none;
+
+                &:hover {
+                    color:white;
+                }
+            }
+
+            &:hover {
+                 cursor: pointer;
+                .material-icons {
+                    display:block;
+                }
+            }
+            
+        }
+    }
 }
 
 .mdl-layout__drawer .bap-navigation .bap-navigation__link.bap-navigation__link--active {

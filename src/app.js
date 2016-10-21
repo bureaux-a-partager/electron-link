@@ -57,6 +57,22 @@ app.on('ready', function() {
 
     mainWindow.loadURL('file://' + __dirname + '/windows/main/main.html')
     mainWindow.openDevTools();
+
+    mainWindow.on('closed', function(){
+        mainWindow = null;
+
+        if (settingWindow) {
+            settingWindow.close();
+            settingWindow = null;
+        
+        }
+
+        if (insertWindow) {
+            insertWindow.close();
+            insertWindow = null;
+        }
+        app.quit();
+    });
 })
 
 ipcMain.on('toggle-add-url-view', function() {
@@ -74,4 +90,9 @@ ipcMain.on('toggle-setting-view', function() {
     }
 
     return (settingWindow.isVisible()) ? settingWindow.hide() : settingWindow.show();
+});
+
+ipcMain.on('sync-urls', function(event, urls) {
+    event.returnValue = true;
+    mainWindow.webContents.send('main-sync-urls', urls)
 });
