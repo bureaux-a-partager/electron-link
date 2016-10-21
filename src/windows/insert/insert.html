@@ -21,16 +21,20 @@
                 </div>
                 <div class="mdl-card__supporting-text">
                     <div class="insert" >
-                            <fieldset ng-disabled="!vm.loaded">
+                            <fieldset>
                                 <div class="mdl-textfield">
-                                    <input class="mdl-textfield__input" type="url" id="url" placeholder="*.espace.link" ng-model="vm.formData.url" required />                           
+                                    <input 
+                                    class="mdl-textfield__input" 
+                                    type="text" 
+                                    placeholder="*.espace.link" 
+                                    ng-model="vm.form.url" />                           
                                 </div>
                             </fieldset>
                     </div>        
                 </div>   
 
                 <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored ùdl-js-button mdl-js-ripple-effect">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="add()">
                         Ajouter
                     </a>
                     <a class="mdl-button mdl-js-ripple-effect" ng-click="cancelAdding()">
@@ -40,12 +44,12 @@
             </form>   
         </div>
     </div>
+    <script src="../common/utils.js"></script>
     <script src="../insert/insert.view.js"></script>
     <script>
         angular
             .element(document)
             .ready(function() {
-                console.log("angular started");
                 angular.bootstrap(document.body, ['InsertView']);
             });
     </script>

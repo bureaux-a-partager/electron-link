@@ -1,7 +1,9 @@
-<header class=mdl-layout-header"></header>
+<header class="mdl-layout-header"></header>
 <nav class="bap-navigation mdl-navigation mdl-color--blue-grey-900">
-    <a class="bap-navigation__link mdl-navigation__link">Drouot</a>
-    <a class="bap-navigation__link mdl-navigation__link bap-navigation__link--active">Wai</a>
+    <span ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link" ng-class="{'active': data.active}">
+        <i class="material-icons" ng-click="removeUrl(data)">delete_forever</i>
+        <a ng-click="changeUrl(data.url)">{{ data.url }}</a>
+    </span>
 </nav>
 <footer class="bap-navigation-footer">
     <button class="mdl-button" id="toggle-add-url-view">
