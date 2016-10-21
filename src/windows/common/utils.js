@@ -16,7 +16,7 @@ angular
             deferred.resolve(this);
         }.bind(this))
         .catch(function (err) {
-            this.db.addCollection('url');
+            this.db.addCollection('url', { autoupdate: true });
             this.db.saveDatabase();
             this.collection = this.db.getCollection('url');
             deferred.resolve(this);
