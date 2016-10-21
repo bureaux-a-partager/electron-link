@@ -17,7 +17,7 @@ function createInsertWindow() {
 
     insertWindow .loadURL('file://' + __dirname 
     + '/windows/insert/insert.html');
-    // insertWindow.openDevTools();
+    insertWindow.openDevTools();
     insertWindow.on('closed', function() {
         insertWindow = null;
     })
@@ -56,7 +56,7 @@ app.on('ready', function() {
     });
 
     mainWindow.loadURL('file://' + __dirname + '/windows/main/main.html')
-    // mainWindow.openDevTools();
+    mainWindow.openDevTools();
 
     mainWindow.on('closed', function(){
         mainWindow = null;

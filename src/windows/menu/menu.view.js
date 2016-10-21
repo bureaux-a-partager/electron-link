@@ -57,10 +57,12 @@ angular
                 resetActive();
                 url.active = true;
 
-                // var promises = [];
-                // scope.urls.forEach(function(url) { 
-                //     promises.push(StorageService.updateDoc(url)); 
-                // });
+                
+
+                var promises = [];
+                scope.urls.forEach(function(url) { 
+                    //promises.push(StorageService.updateDoc(url)); 
+                });
 
                 ipcRenderer.send('change-subdomain', url);
                 // StorageService.reload().then(function() {
