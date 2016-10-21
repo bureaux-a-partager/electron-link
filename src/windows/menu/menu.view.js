@@ -38,7 +38,11 @@ angular
                         scope.urls = collection.data;
                     });
                 });
-            }
+            };
+
+            scope.changeUrl = function (url) {
+                ipcRenderer.send('change-subdomain', url);
+            };
         }
     };
 }]);

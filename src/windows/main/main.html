@@ -32,12 +32,21 @@
     <script src="./main.view.js"></script>
 
     <script>
+
+        
     onload = () => {
         const webview = document.getElementById('link-webview');
-
+        const {ipcRenderer} = require('electron');
+        
         webview.addEventListener('did-start-loading', function() {
         });
         webview.addEventListener('did-stop-loading', function() {
+        })
+        
+
+        ipcRenderer.on('reload-webview', function(event, url) {
+            console.log("URL", url);
+            webview.src = "https://" + url;
         })
     } 
     </script>
