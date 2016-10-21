@@ -96,3 +96,8 @@ ipcMain.on('sync-urls', function(event, urls) {
     event.returnValue = true;
     mainWindow.webContents.send('main-sync-urls', urls)
 });
+
+
+ipcMain.on('change-subdomain', function(event, url) {
+    mainWindow.webContents.send('reload-webview', url);
+});
