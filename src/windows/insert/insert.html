@@ -15,7 +15,7 @@
 <body>
     <div class="bap-card__wrapper">
         <div class="mdl-card bap-card mdl-shadow--8dp" ng-controller="InsertCtrl as vm">
-            <form name="insertForm" no-validate>
+            <form name="insertForm" ng-submit="add()" no-validate>
                 <div class="mdl-card__title bap-card__title">
                     <h2 class="mdl-card__title-text"></h2>
                 </div>
@@ -26,16 +26,22 @@
                                     <input 
                                     class="mdl-textfield__input" 
                                     type="text" 
+                                    name="url"
                                     placeholder="*.espace.link" 
-                                    ng-model="vm.form.url" />                           
+                                    ng-model="vm.form.url" 
+                                    required
+                                    url-validator/>                           
                                 </div>
+                                <p ng-show="insertForm.url.$error.isUrlValid">Ex : https://nom.espace.link</p>
                             </fieldset>
                     </div>        
                 </div>   
 
                 <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="add()">
-                        Ajouter
+                    <input type="submit" 
+                        ng-disabled="insertForm.$invalid"
+                        class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" 
+                        value="Ajouter">
                     </a>
                     <a class="mdl-button mdl-js-ripple-effect" ng-click="cancelAdding()">
                         Annuler

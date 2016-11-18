@@ -5,13 +5,21 @@
   position: relative; 
 }
 
-#link-webview {
+.link-webview {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; }
+  bottom: 0; 
+  display:none;
+
+  &.active {
+    display:block;
+  }
+}
+
 
 .mdl-layout--fixed-drawer > .bap-layout__content {
-  margin-left: $width-menu; }
+  margin-left: $width-menu; 
+}
 

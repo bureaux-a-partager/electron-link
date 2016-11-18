@@ -4,7 +4,7 @@
         <div ng-if="data.active" class="bap-navigation__link--active-block"></div>
         <a  ng-click="changeUrl(data)" 
             id="link-{{$index}}"
-            ng-class="{'active': data.active == true}">{{ data.url | limitTo : 3 }}
+            ng-class="{'active': data.active == true}">{{ data.url | check }}
         </a>
         <div class="mdl-tooltip" for="link-{{$index}}" data-mdl-for="link-{{$index}}">{{ data.url }}</div>
     </div>

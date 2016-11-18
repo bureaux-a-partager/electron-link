@@ -5,6 +5,7 @@ angular
 .controller('InsertCtrl', ['$scope', 'StorageService', function($scope, StorageService) {
     var vm = this;
     vm.form = { url: "", active: false};
+
     $scope.cancelAdding = function cancelAdding() {
         ipcRenderer.send("toggle-add-url-view");
     };
@@ -13,7 +14,7 @@ angular
    
     $scope.add = function add() {
         
-        var data = {url: vm.form.url + ".espace.link", active: false};
+        var data = {url: vm.form.url, active: false};
         StorageService.reload()
             .then(function () {
                 return StorageService.addDoc(data);
@@ -26,4 +27,21 @@ angular
                 }
         });
     }
+}])
+.directive('urlValidator', [ function urlValidator() {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, elem, attr, ngModel) {
+            ngModel.$validators.isUrlValid = function (modelValue, viewValue) {
+                var url = viewValue || modelValue;
+                var isUrlValid = false;
+
+                var pattern = new RegExp(/^http(s)?:\/\/([a-zA-Z0-9\.])+\.espace\.link$/);
+                isUrlValid = pattern.test(url);
+                
+                return isUrlValid;
+            };
+        }
+    };
 }]);
