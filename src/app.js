@@ -35,7 +35,8 @@ function createSettingWindow() {
     });
 
     settingWindow .loadURL('file://' + __dirname 
-    + '/windows/settings/setting.html');
+    + '/windows/setting/setting.html');
+    settingWindow.openDevTools();
     settingWindow.on('closed', function() {
         settingWindow = null;
     })

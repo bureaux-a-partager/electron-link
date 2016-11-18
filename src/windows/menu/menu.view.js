@@ -37,21 +37,6 @@ angular
                 });
             });
 
-            scope.removeUrl = function (data) {
-                var dialog = document.querySelector('#dialog');
-                dialog.showModal();
-                dialog.querySelector('button:not([disabled])').addEventListener('click', function() {
-                    StorageService.reload()
-                    .then(function() { 
-                        return StorageService.removeDoc(data); 
-                    })
-                    .then(function(collection) {
-                            scope.urls = collection.data;
-                            dialog.close();
-                        });
-                });
-                
-            };
 
             scope.changeUrl = function (url) {
                 resetActive();

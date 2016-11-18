@@ -37,7 +37,8 @@
             padding: 15px 0px;
             width: 100%;
             text-align: center;
-            
+            position: relative;
+        
             a {
                 @include border-radius(5px);
                 text-transform: uppercase;
@@ -61,6 +62,16 @@
             
             &:hover {
                 background-color: transparent !important;
+            }
+
+            .bap-navigation__link--active-block {
+                background: white;
+                position: absolute;
+                width: 7px;
+                height: 7px;
+                @include border-radius(50%);
+                left: 2px;
+                top: 31.5px;    
             }
         }
     }
