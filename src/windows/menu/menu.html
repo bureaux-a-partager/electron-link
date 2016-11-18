@@ -1,8 +1,11 @@
 <header class="mdl-layout-header"></header>
-<nav class="bap-navigation mdl-navigation mdl-color--blue-grey-900">
-    <span ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link" ng-class="{'active': data.active == true}">
-        <i class="material-icons" ng-click="removeUrl(data)">delete_forever</i>
-        <a ng-click="changeUrl(data)">{{ data.url }}</a>
+<nav class="bap-navigation mdl-navigation">
+    <span ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link">
+        <a  ng-click="changeUrl(data)" 
+            id="link-{{ $index }}"
+            ng-class="{'active': data.active == true}">{{ data.url | limitTo : 3 }}
+        </a>
+        <div class="mdl-tooltip" data-mdl-for="link-{{ $index }}">{{ data.url }}</div>
     </span>
 </nav>
 <footer class="bap-navigation-footer">
