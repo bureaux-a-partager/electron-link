@@ -25,8 +25,9 @@
                 <webview ng-repeat="data in urls" 
                 class="link-webview"
                 ng-class="{'active': data.active}"
-                ng-src="{{ data.url }}" 
+                ng-src="{{ trustUrl(data) }}" 
                 id="link-webview-{{$index}}"></webview>
+
             </div>
         </div>
     </div>
@@ -38,20 +39,19 @@
 
     <script>
 
-        
-    // onload = () => {
-    //     const {ipcRenderer} = require('electron');
+    // window.document.onload = function() { 
+    //     const webviews = document.getElementsByTagName('webview');
 
-    //     ipcRenderer.on('main-change-subdomain', function(event, changeUrl) {
-    //         // TO ME : changer la classe de la bonne url
-    //         $scope.urls.forEach(function (urlData) {
-    //             urlData.active = false;
-    //             if (urlData.url === changeUrl.url) {
-    //                 urlData.active = true;
+    //     webviews.forEach(function (webview) {
+    //         webview.addEventListener('new-window', (e) => {
+    //             const protocol = require('url').parse(e.url).protocol;
+    //             if (protocol === 'http:' || protocol === 'https:') {
+    //             shell.openExternal(e.url)
     //             }
-    //         })
-    //     })
-    // } 
+    //         });
+    //     });
+    // };
+
     </script>
 
     <script>

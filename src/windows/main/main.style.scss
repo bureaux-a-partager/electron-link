@@ -13,8 +13,13 @@
   bottom: 0; 
   display:none;
 
+  object {
+    width: 100%;
+    height: 500px;
+  }
+
   &.active {
-    display:block;
+    display:flex;
   }
 }
 
