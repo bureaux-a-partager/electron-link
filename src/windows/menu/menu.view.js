@@ -42,21 +42,18 @@ angular
                 resetActive();
                 url.active = true;
 
-                
-
-                var promises = [];
-                scope.urls.forEach(function(url) { 
-                    //promises.push(StorageService.updateDoc(url)); 
-                });
-
                 ipcRenderer.send('change-subdomain', url);
-                // StorageService.reload().then(function() {
-                //     $q.all(promises).then(function() {
-                //     }, function (err) {
-                //         console.log(err);
-                //     });
-                // });
             };
         }
     };
-}]);
+}])
+.filter('check', function() {
+    return function(url) {
+        var pattern = new RegExp(/^http(s)?:\/\/(([a-zA-Z0-9\.])+?)\.espace\.link$/);
+        var trigram = pattern.exec(url)[2];
+        if (!trigram) {
+            return "ERR";
+        }
+        return trigram.substring(0,3);
+    }
+});

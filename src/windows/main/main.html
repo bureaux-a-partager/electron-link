@@ -22,7 +22,11 @@
             </div>
 
             <div class="bap-layout__content mdl-layout__content">
-                <webview src="https://acces.espace.link" partition="persist:link" id="link-webview"></webview>
+                <webview ng-repeat="data in urls" 
+                class="link-webview"
+                ng-class="{'active': data.active}"
+                ng-src="{{ data.url }}" 
+                id="link-webview-{{$index}}"></webview>
             </div>
         </div>
     </div>
@@ -35,20 +39,19 @@
     <script>
 
         
-    onload = () => {
-        const webview = document.getElementById('link-webview');
-        const {ipcRenderer} = require('electron');
-        
-        webview.addEventListener('did-start-loading', function() {
-        });
-        webview.addEventListener('did-stop-loading', function() {
-        })
-        
+    // onload = () => {
+    //     const {ipcRenderer} = require('electron');
 
-        ipcRenderer.on('reload-webview', function(event, url) {
-            webview.loadURL("https://" + url.url);
-        })
-    } 
+    //     ipcRenderer.on('main-change-subdomain', function(event, changeUrl) {
+    //         // TO ME : changer la classe de la bonne url
+    //         $scope.urls.forEach(function (urlData) {
+    //             urlData.active = false;
+    //             if (urlData.url === changeUrl.url) {
+    //                 urlData.active = true;
+    //             }
+    //         })
+    //     })
+    // } 
     </script>
 
     <script>
