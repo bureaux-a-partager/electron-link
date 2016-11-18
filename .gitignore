@@ -1,1 +1,8 @@
 node_modules
+src/node_modules
+src/bower_components
+.sass-cache
+npm-debug.log
+src/**/*.css
+src/**/*.map
+app.db
