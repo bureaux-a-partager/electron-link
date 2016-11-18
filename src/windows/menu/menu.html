@@ -3,10 +3,10 @@
     <div ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link">
         <div ng-if="data.active" class="bap-navigation__link--active-block"></div>
         <a  ng-click="changeUrl(data)" 
-            id="link-qsd"
+            id="link-{{$index}}"
             ng-class="{'active': data.active == true}">{{ data.url | limitTo : 3 }}
         </a>
-        <div class="mdl-tooltip" data-mdl-for="link-qsd">{{ data.url }}</div>
+        <div class="mdl-tooltip" for="link-{{$index}}" data-mdl-for="link-{{$index}}">{{ data.url }}</div>
     </div>
     <div class="bap-navigation__link mdl-navigation__link">
         <a  id="toggle-add-url-view"
@@ -17,6 +17,7 @@
 </nav>
 <footer class="bap-navigation-footer">
     <button class="mdl-button" id="toggle-setting-view">
-        <i class="material-icons">settings</i>
+        <i class="material-icons" id="link-setting">settings</i>
+        <div class="mdl-tooltip" for="link-settings" data-mdl-for="link-settings">Paramètres</div>
     </button>
 </footer>
