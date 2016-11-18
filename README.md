@@ -1,14 +1,15 @@
 # electron-link Roadmap 
 
-- X Configuration SASS with NPM
-- X Using lokiJS to store URLs
-- Change favicon
-- X Mise à jour de l'active d'un url avec lokiJS
-- X Avoir une webview par URL
-- X Pour le menu s'inspirer, de slack , un rond dans lequel on met les 3 premieres lettres. 
-- X Mettre la suppression dans le settings
-- test Sniffer les notifs
-- save le token pour ne pas devoir se reconnecter
+- [x] Configuration SASS with NPM
+- [x] Using lokiJS to store URLs
+- [x] Mise à jour de l'active d'un url avec lokiJS
+- [x] Avoir une webview par URL
+- [x] Pour le menu s'inspirer, de slack , un rond dans lequel on met les 3 premieres lettres. 
+- [x] Mettre la suppression dans le settings
+- [ ] save le token pour ne pas devoir se reconnecter
+- [ ] Sniffer les notifs - les afficher en natifs
+- [ ] Change favicon
+- [ ] unbind the webview (pour l'instant se connecter sur une webview , on se connecte sur l'autre)
 
 
 Build 
