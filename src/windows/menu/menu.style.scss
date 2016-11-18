@@ -1,8 +1,11 @@
 @import '../common/variable';
+@import '../common/mixin';
+@import '../common/color';
 
 .bap-drawer {
     border: none;
     width: $width-menu; 
+    background-color: $background-left-menu; 
 
     .mdl-layout-header {
         height: 50px;
@@ -26,29 +29,39 @@
     }
 
     .bap-navigation {
+        
         padding-top: 0;
-        .bap-navigation__link {
-            padding: 8px 16px 8px 24px;
-            .material-icons {
-                position:absolute;
-                left:0;
-                display:none;
+        background-color: $background-2;
 
+        .bap-navigation__link {
+            padding: 15px 0px;
+            width: 100%;
+            text-align: center;
+            
+            a {
+                @include border-radius(5px);
+                text-transform: uppercase;
+                background:#aaa;
+                display: block;
+                width: $width-menu / 2;
+                margin: auto;
+                color: black;
+                padding: 8px 5px;   
+                @include transition(background-color .5s, color .5s);
+               
+                &.active {
+                    background: #fff;
+                }
                 &:hover {
-                    color:white;
+                    background: #455a64;
+                    cursor: pointer;
+                    color: $link-left-menu;
                 }
             }
             
-            &.active {
-                background: #7a3754;
-            }
             &:hover {
-                 cursor: pointer;
-                .material-icons {
-                    display:block;
-                }
+                background-color: transparent !important;
             }
-            
         }
     }
 }
