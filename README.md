@@ -13,6 +13,6 @@
 
 Build 
 
-To compile sass: you need to install http://sass-lang.com/install
-To run electron in dev env : electron app.js
-To build : use electron-packager
+- To compile sass: you need to install http://sass-lang.com/install 
+- To run electron in dev env : electron app.js
+- To build : use electron-packager
