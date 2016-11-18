@@ -1,34 +1,22 @@
 <header class="mdl-layout-header"></header>
 <nav class="bap-navigation mdl-navigation">
-    <span ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link">
+    <div ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link">
+        <div ng-if="data.active" class="bap-navigation__link--active-block"></div>
         <a  ng-click="changeUrl(data)" 
             id="link-qsd"
             ng-class="{'active': data.active == true}">{{ data.url | limitTo : 3 }}
         </a>
         <div class="mdl-tooltip" data-mdl-for="link-qsd">{{ data.url }}</div>
-    </span>
-    <span class="bap-navigation__link mdl-navigation__link">
-        <a  ng-click="changeUrl(data)" 
-            id="link-add"
+    </div>
+    <div class="bap-navigation__link mdl-navigation__link">
+        <a  id="toggle-add-url-view"
             ng-class="{'active': data.active == true}"><i class="material-icons">add</i>
         </a>
-        <div class="mdl-tooltip" data-mdl-for="link-add">Ajouter une URL</div>
-    </span>
+        <div class="mdl-tooltip" data-mdl-for="toggle-add-url-view">Ajouter une URL</div>
+    </div>
 </nav>
 <footer class="bap-navigation-footer">
     <button class="mdl-button" id="toggle-setting-view">
         <i class="material-icons">settings</i>
     </button>
 </footer>
-
-<dialog class="mdl-dialog" id="dialog">
-    <h4 class="mdl-dialog__title">Supprimer cette URL?</h4>
-    <div class="mdl-dialog__content">
-        <p>
-            Vous être sur le point de supprimer une URL. En êtes vous sûr ?
-        </p>
-    </div>
-    <div class="mdl-dialog__actions">
-        <button type="button" class="mdl-button">Ok</button>
-    </div>
-</dialog>
