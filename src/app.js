@@ -47,8 +47,8 @@ app.on('ready', function() {
     mainWindow = new BrowserWindow({
         autoHideMenuBar: true,
         titleBarStyle: 'hidden',
-        width: width * .8,
-        height: height * .8,
+        width: width * .9,
+        height: height * .9,
         // icon: __dirname + '/img/bap.png',
         nodeIntegration: false,
         frame: false,

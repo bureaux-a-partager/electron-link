@@ -3,7 +3,7 @@ const path = require('path');
 
 angular
 .module('Utils',[])
-.service('StorageService', ['$q', function StorageService($q) {
+.service('StorageService', ['$q', '$sce', function StorageService($q, $sce) {
     this.db = new loki(path.resolve(__dirname, '../..', 'app.db'));
     this.collection = null;
     this.loaded = false;
