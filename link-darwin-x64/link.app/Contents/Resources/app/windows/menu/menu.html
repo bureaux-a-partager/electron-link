@@ -1,0 +1,23 @@
+<header class="mdl-layout-header"></header>
+<nav class="bap-navigation mdl-navigation">
+    <div ng-repeat="data in urls" class="bap-navigation__link mdl-navigation__link">
+        <div ng-if="data.active" class="bap-navigation__link--active-block"></div>
+        <a  ng-click="changeUrl(data)" 
+            id="link-{{$index}}"
+            ng-class="{'active': data.active == true}">{{ data.url | check }}
+        </a>
+        <div class="mdl-tooltip" for="link-{{$index}}" data-mdl-for="link-{{$index}}">{{ data.url }}</div>
+    </div>
+    <div class="bap-navigation__link mdl-navigation__link">
+        <a  id="toggle-add-url-view"
+            ng-class="{'active': data.active == true}"><i class="material-icons">add</i>
+        </a>
+        <div class="mdl-tooltip" data-mdl-for="toggle-add-url-view">Ajouter une URL</div>
+    </div>
+</nav>
+<footer class="bap-navigation-footer">
+    <button class="mdl-button" id="toggle-setting-view">
+        <i class="material-icons" id="link-setting">settings</i>
+        <div class="mdl-tooltip" for="link-settings" data-mdl-for="link-settings">Paramètres</div>
+    </button>
+</footer>
