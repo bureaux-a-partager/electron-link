@@ -14,7 +14,8 @@ angular
    
     $scope.add = function add() {
         
-        var data = {url: vm.form.url, active: false};
+        slug = vm.form.url.replace(/[^a-zA-Z ]/g, "")
+        var data = {url: vm.form.url, slug: slug, active: false};
         StorageService.reload()
             .then(function () {
                 return StorageService.addDoc(data);

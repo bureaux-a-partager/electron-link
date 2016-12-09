@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ELL Keychain</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="../../bower_components/material-design-lite/material.min.css" rel="stylesheet" />
+
+    <link href="./setting.style.css" rel="stylesheet" />
+
+    <script src="../../bower_components/material-design-lite/material.min.js"></script>
+    <script src="../../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+    <div class="mdl-card bap-card mdl-shadow--8dp" ng-controller="SettingCtrl as vm">
+        <ul>
+            <li ng-repeat="data in urls">
+                <a ng-click="removeUrl(data)">Supprimer l'url {{data.url}}</a>
+            </li>
+        </ul>
+
+        <a ng-click="toggleSettingView()">Sortir</a>
+    </div>
+
+    <dialog class="mdl-dialog" id="dialog">
+        <h4 class="mdl-dialog__title">Supprimer cette URL?</h4>
+        <div class="mdl-dialog__content">
+            <p>
+                Vous être sur le point de supprimer une URL. En êtes vous sûr ?
+            </p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button">Ok</button>
+        </div>
+    </dialog>
+
+    <script src="../common/utils.js"></script>
+    <script src="../setting/setting.view.js"></script>
+    <script>
+        angular
+            .element(document)
+            .ready(function() {
+                angular.bootstrap(document.body, ['SettingView']);
+            });
+    </script>
+</body>
+</html>
