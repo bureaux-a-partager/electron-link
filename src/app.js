@@ -53,7 +53,7 @@ app.on('ready', function() {
         titleBarStyle: 'hidden',
         width: width * 1.2,
         height: height * 1.45,
-        icon: __dirname + '/img/bap.png',
+        icon: __dirname + '/img/logo.png',
         nodeIntegration: false,
         frame: false,
         title: 'Link',

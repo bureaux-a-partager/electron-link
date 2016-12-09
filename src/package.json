@@ -7,7 +7,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "find windows -name '*.scss' | sed  s/.scss$// | while read i; do sass $i.scss:$i.css --style compressed; done",
-    "sass-watch": "find windows -name '*.scss' | sed  s/.scss$// | while read i; do sass --watch $i.scss:$i.css --style compressed; done"  
+    "sass-watch": "find windows -name '*.scss' | sed  s/.scss$// | while read i; do sass --watch $i.scss:$i.css --style compressed; done",
+    "pack:osx": "electron-packager . link --out=../dist/osx --platform=darwin --arch=x64 --icon=img/logo.icns --overwrite",
+    "pack:win32": "electron-packager . link --out=../dist/win --platform=win32 --arch=ia32",
+    "pack:win64": "electron-packager . link --out=../dist/win --platform=win32 --arch=x64 --version=0.36.2 app-version=1.0 --icon=img/icon.ico",
+    "build": "npm run pack:osx && npm run pack:win32 && npm run pack:win64"
   },
   "repository": {
     "type": "git",
