@@ -1,0 +1,19 @@
+body {
+    background: #465769;
+    
+    .bap-card__wrapper {    
+        width: 100%;
+        margin: auto;
+        display: block;
+        padding-top: 40px;
+               
+        .bap-card {
+            width: 500px;
+            margin: auto;
+            
+            .bap-list__item {
+                background: #e9eff5;
+            }
+        }
+    }
+}

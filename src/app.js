@@ -17,7 +17,9 @@ function createInsertWindow() {
 
     insertWindow .loadURL('file://' + __dirname 
     + '/windows/insert/insert.html');
-    //insertWindow.openDevTools();
+    if (process.env.ENV == 'DEV') {
+        insertWindow.openDevTools();
+    }
     insertWindow.on('closed', function() {
         insertWindow = null;
     })
@@ -36,7 +38,9 @@ function createSettingWindow() {
 
     settingWindow .loadURL('file://' + __dirname 
     + '/windows/setting/setting.html');
-    //settingWindow.openDevTools();
+    if (process.env.ENV == 'DEV') {
+        settingWindow.openDevTools();
+    }
     settingWindow.on('closed', function() {
         settingWindow = null;
     })
@@ -57,8 +61,9 @@ app.on('ready', function() {
     });
 
     mainWindow.loadURL('file://' + __dirname + '/windows/main/main.html')
-    //mainWindow.openDevTools();
-
+    if (process.env.ENV == 'DEV') {
+        mainWindow.openDevTools();
+    }
     mainWindow.on('closed', function(){
         mainWindow = null;
 

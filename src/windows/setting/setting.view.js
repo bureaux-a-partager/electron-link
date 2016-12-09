@@ -27,9 +27,13 @@ angular
                     dialog.close();
                 });
         });
-    }
+    };
     
     $scope.toggleSettingView = function() {
         ipcRenderer.send('toggle-setting-view');
     };
+
+    ipcRenderer.on('main-sync-urls', function (event, urls) {
+        $scope.urls = urls;
+    });
 }]);

@@ -21,13 +21,14 @@
                 class="bap-drawer mdl-layout__drawer">
             </div>
 
-            <div class="bap-layout__content mdl-layout__content">
-                <webview ng-repeat="data in urls" 
+            <div class="bap-layout__content mdl-layout__content" id="webview-container">
+                <webview src="https://espace.link/" class="link-webview active"></webview>
+                <!--<webview ng-repeat="data in urls" 
                 class="link-webview"
                 ng-class="{'active': data.active}"
-                ng-src="{{ trustUrl(data) }}" 
-                id="link-webview-{{$index}}"></webview>
-
+                ng-src="{{ trustUrl(data) }}"
+                partition="persist:link-{{$index}}"
+                id="link-webview-{{$index}}"></webview>-->
             </div>
         </div>
     </div>
@@ -38,20 +39,6 @@
     <script src="./main.view.js"></script>
 
     <script>
-
-    // window.document.onload = function() { 
-    //     const webviews = document.getElementsByTagName('webview');
-
-    //     webviews.forEach(function (webview) {
-    //         webview.addEventListener('new-window', (e) => {
-    //             const protocol = require('url').parse(e.url).protocol;
-    //             if (protocol === 'http:' || protocol === 'https:') {
-    //             shell.openExternal(e.url)
-    //             }
-    //         });
-    //     });
-    // };
-
     </script>
 
     <script>

@@ -14,13 +14,14 @@ angular
             var resetActive = function () {
                 scope.urls.forEach(function(url) {
                     url.active = false;
+                    StorageService.updateDoc(url);
                 });
             }
 
             StorageService.init().then(function (db) {
                 scope.urls = db.getDocs();
             }); 
-                
+        
             toggleAddUrlView.bind("click", function(evt) {
                 evt.preventDefault();
                 ipcRenderer.send('toggle-add-url-view');
@@ -42,7 +43,11 @@ angular
                 resetActive();
                 url.active = true;
 
-                ipcRenderer.send('change-subdomain', url);
+                StorageService.reload().then(function() {
+                    StorageService.updateDoc(url).then(function() {
+                        ipcRenderer.send('change-subdomain', url);
+                    });
+                });
             };
         }
     };
